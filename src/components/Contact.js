@@ -6,6 +6,7 @@ import TrackVisibility from 'react-on-screen';
 import emailjs from 'emailjs-com';
 import { async } from "q";
 import React from "react";
+import headerImg from "../assets/img/header-img.png";
 
 const SERVICE_ID = "service_w150psl";
 const TEMPLATE_ID = "template_crioe15";
@@ -32,10 +33,9 @@ export const Contact = () => {
     const onScroll = () => {
       if (window.scrollY > 50) {
         setScrolled(true)
-       
-          setButtonText('Send')
-          setDesc('')
-          setFormDetails(formInitialDetails) 
+        setButtonText('Send')
+        setDesc('')
+        setFormDetails(formInitialDetails) 
       
       } else {
         setScrolled(false);
@@ -90,11 +90,7 @@ export const Contact = () => {
       <Container>
         <Row className="align-items-center">
           <Col size={12} md={6}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <img className={isVisible ? "animate__animated animate__zoomIn" : ""} src={contactImg} alt="Contact Us"/>
-              }
-            </TrackVisibility>
+          <img src={headerImg} alt="Contact Us"/>
           </Col>
           <Col size={12} md={6}>
             <TrackVisibility>
