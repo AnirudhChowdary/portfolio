@@ -7,6 +7,7 @@ import emailjs from 'emailjs-com';
 import { async } from "q";
 import React from "react";
 import headerImg from "../assets/img/header-img.png";
+import banner from "../assets/img/contact-banner.png";
 
 const SERVICE_ID = "service_w150psl";
 const TEMPLATE_ID = "template_crioe15";
@@ -90,7 +91,7 @@ export const Contact = () => {
       <Container>
         <Row className="align-items-center">
           <Col size={12} md={6}>
-          <img src={headerImg} alt="Contact Us"/>
+          <img src={banner} alt="Contact Us"/>
           </Col>
           <Col size={12} md={6}>
             <TrackVisibility>
