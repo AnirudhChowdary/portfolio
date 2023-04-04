@@ -1,13 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../assets/img/contact-img.svg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 import emailjs from 'emailjs-com';
-import { async } from "q";
 import React from "react";
-import headerImg from "../assets/img/header-img.png";
-import banner from "../assets/img/contact-banner.png";
+import banner from "../assets/img/contactme.png";
 
 const SERVICE_ID = "service_w150psl";
 const TEMPLATE_ID = "template_crioe15";
@@ -28,18 +25,28 @@ export const Contact = () => {
   const [desc,setDesc] =useState();
  
 
+  
   const [scrolled, setScrolled] = useState(false);
+  const [height, setHeight] = useState(0);
+
+  const ref = useRef(null)
+
+  useEffect(() => {
+    setHeight(ref.current.clientHeight)
+  })
+  
 
   useEffect(() => {
     const onScroll = () => {
-      if (window.scrollY > 50) {
+
+      if (window.scrollY < 600) {
         setScrolled(true)
         setButtonText('Send')
         setDesc('')
         setFormDetails(formInitialDetails) 
       
       } else {
-        setScrolled(false);
+        setScrolled(false)
       }
     }
 
@@ -88,7 +95,7 @@ export const Contact = () => {
 
   return (
     <section className="contact" id="connect">
-      <Container>
+      <Container  ref={ref}>
         <Row className="align-items-center">
           <Col size={12} md={6}>
           <img src={banner} alt="Contact Us"/>
@@ -98,7 +105,7 @@ export const Contact = () => {
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <h2>Get In Touch</h2>
-                <form id="contactForm" onSubmit={handleSubmit}>
+                <form  id="contactForm" onSubmit={handleSubmit} >
                   <Row>
                     <Col size={12} sm={6} className="px-1">
                       <input type="text" value={formDetails.firstName} placeholder="First Name" name="firstName" onChange={(e) => onFormUpdate('firstName', e.target.value)} />
