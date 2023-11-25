@@ -8,7 +8,7 @@ import { HashLink } from 'react-router-hash-link';
 import {
   BrowserRouter as Router
 } from "react-router-dom";
-
+import * as constants from './Constants'
 export const NavBar = () => {
 
   
@@ -51,7 +51,7 @@ export const NavBar = () => {
             <span className="navbar-text">
               <div className="social-icon"> <a  href={resume} download=""><img className="download" src={download} alt=""/></a></div>
               <div className="social-icon">
-                <a href="https://www.linkedin.com/in/anirudh-chowdary-ravipati-767166160/"><img src={navIcon1} alt="" /></a>
+                <a href={constants.LinkedIn}><img src={navIcon1} alt="" /></a>
               </div>
               <HashLink to='#connect'>
                 <button className="vvd"><span>Let’s Connect</span></button>

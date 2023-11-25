@@ -2,8 +2,10 @@ import { Container, Row, Col } from "react-bootstrap";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import resume from '../assets/files/Anirudh_Chowdary_Resume.pdf'
 import download from '../assets/img/download.svg'
+import * as constants from './Constants'
 
 export const Footer = () => {
+
   return (
     <footer className="footer">
       <Container>
@@ -12,7 +14,7 @@ export const Footer = () => {
           </Col>
           <Col size={12} sm={6} className="text-center text-sm-end">
             <div className="social-icon">
-              <a href="https://www.linkedin.com/in/anirudh-chowdary-ravipati-767166160"><img src={navIcon1} alt="Icon" /></a>
+              <a href={constants.LinkedIn}><img src={navIcon1} alt="Icon" /></a>
               <div className="social-icon"> <a  href={resume} download=""><img className="download" src={download} alt=""/></a></div>
               
             </div>
